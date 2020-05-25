@@ -1,0 +1,12 @@
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\bin\Debug\NoteCFProject.exe
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\bin\Debug\NoteCFProject.pdb
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.csprojResolveAssemblyReference.cache
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.Form1.resources
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.Properties.Resources.resources
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.csproj.GenerateResource.Cache
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.exe.licenses
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.exe
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.pdb
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\bin\Debug\DBContext.pdb
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.FrmSoDoBan.resources
+D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\bin\Debug\DBContext.dll
