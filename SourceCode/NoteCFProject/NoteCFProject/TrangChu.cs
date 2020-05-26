@@ -39,6 +39,8 @@ namespace NoteCFProject
                                         WHERE DATU.STATUS = 1 AND DVT.STATUS = 1 AND GIADATU.STATUS = 1
                                         ");
 
+            List<DANHMUC_DOANTHUCUONG_OBJ> temp = tbDoAnThucUong.ToList<DANHMUC_DOANTHUCUONG_OBJ>().ToList();
+
             List<DANHMUC_DOANTHUCUONG_OBJ> listDoAnThucUong = DANHMUC_DOANTHUCUONG_CONTROLLER.GetListDoAnThucUong(tbDoAnThucUong);
 
             repositoryItemSearchLookUpEditTenMon.DataSource = listDoAnThucUong;
