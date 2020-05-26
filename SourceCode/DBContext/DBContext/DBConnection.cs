@@ -42,17 +42,16 @@ namespace DBContext
 
         public static int QueryByINSERT(string sql)
         {
+            var id = -1;
             SqlConnection connection = DBUtils.GetDBConnection();
             connection.Open();
             try
-            {    
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = sql;                 
- 
-                // Thực thi Command (Dùng cho delete, insert, update).
-                int rowCount = cmd.ExecuteNonQuery();
- 
-                return rowCount;
+            {
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = sql;
+                    id = (int) cmd.ExecuteScalar();
+                }
             }
             catch (Exception e)
             {
@@ -60,12 +59,43 @@ namespace DBContext
                 Console.WriteLine(e.StackTrace);
             }
             finally
-            { 
-                connection.Close(); 
+            {
+                // Đóng kết nối.
+                connection.Close();
+                // Hủy đối tượng, giải phóng tài nguyên.
                 connection.Dispose();
-                connection = null;
             }
-            return 0;
+
+            return id;
+        }
+
+        public static int QueryByUPDATE(string sql)
+        {
+            var id = -1;
+            SqlConnection connection = DBUtils.GetDBConnection();
+            connection.Open();
+            try
+            {
+                using (SqlCommand cmd = connection.CreateCommand())
+                {
+                    cmd.CommandText = sql;
+                    id = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e);
+                Console.WriteLine(e.StackTrace);
+            }
+            finally
+            {
+                // Đóng kết nối.
+                connection.Close();
+                // Hủy đối tượng, giải phóng tài nguyên.
+                connection.Dispose();
+            }
+
+            return id;
         }
     }
 }

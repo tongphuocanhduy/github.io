@@ -10,3 +10,5 @@ D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.pdb
 D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\bin\Debug\DBContext.pdb
 D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.FrmSoDoBan.resources
 D:\SOFT\Duy\NoteCF\NoteCFProject\NoteCFProject\bin\Debug\DBContext.dll
+D:\SOFT\MyApp\Duy\NoteCF\github.io\SourceCode\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.exe
+D:\SOFT\MyApp\Duy\NoteCF\github.io\SourceCode\NoteCFProject\NoteCFProject\obj\Debug\NoteCFProject.pdb
