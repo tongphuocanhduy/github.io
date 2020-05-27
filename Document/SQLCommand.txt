@@ -1,0 +1,50 @@
+private DataSet SelectQuery(string query, params IDataParameter[] sqlParams)
+       {
+           try
+           {
+               var con=new SqlConnection(connectionString);
+               using (con)
+               {
+                   con.Open();
+                   var cmd = new SqlCommand(query, con);
+                   if (sqlParams != null)
+                   {
+                       foreach (IDataParameter para in sqlParams)
+                       {
+                           cmd.Parameters.Add(para);
+                       }
+                   }
+                   using (var sda = new SqlDataAdapter())
+                   {
+                       sda.SelectCommand = cmd;
+                       using (DataSet ds = new DataSet())
+                       {
+                           sda.Fill(ds);
+                           con.Close();
+                           return ds;
+                       }
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               throw new Exception(ex.Message);
+           }
+       }
+	   
+	   
+	   using (SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["SAMPLEDBConnectionString"].ConnectionString))
+            {
+                con.Open();
+                //Insert QUery with Scope_Identity
+                using (SqlCommand cmd = new SqlCommand("insert [ShipmentDetail](TrackingNumber) Values(@TrackingNumber); SELECT SCOPE_IDENTITY()   ", con))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    {
+                        //Add parameter values
+                        cmd.Parameters.AddWithValue("@TrackingNumber", "Sample123");
+                        //Get the inserted query
+                        int insertedID = Convert.ToInt32(cmd.ExecuteScalar());
+                    }
+                }
+            }
