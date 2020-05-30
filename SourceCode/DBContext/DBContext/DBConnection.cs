@@ -49,8 +49,10 @@ namespace DBContext
             {
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
-                    cmd.CommandText = sql;
-                    id = (int) cmd.ExecuteScalar();
+                    cmd.CommandText = sql + " SELECT SCOPE_IDENTITY();";
+                    var idIdentity = cmd.ExecuteScalar();
+
+                    id = Convert.ToInt32(idIdentity);
                 }
             }
             catch (Exception e)
@@ -79,7 +81,8 @@ namespace DBContext
                 using (SqlCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = sql;
-                    id = cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                    id = 1;
                 }
             }
             catch (Exception e)

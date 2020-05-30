@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DBContext">
-      <HintPath>..\..\DBContext\DBContext\bin\Debug\DBContext.dll</HintPath>
-    </Reference>
     <Reference Include="DevExpress.BonusSkins.v14.2" />
     <Reference Include="DevExpress.Data.v14.2" />
     <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -65,6 +62,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\HOADON.cs" />
     <Compile Include="Model\DOANTHUCUONG.cs" />
     <Compile Include="Model\SODOBAN.cs" />
     <Compile Include="Program.cs" />
@@ -87,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="TrangChu.resx">
       <DependentUpon>TrangChu.cs</DependentUpon>
@@ -100,6 +99,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DBContext\DBContext\DBContext.csproj">
+      <Project>{6f182db4-94d5-4271-bf1e-4d699742f00f}</Project>
+      <Name>DBContext</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-print-32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

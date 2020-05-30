@@ -9,14 +9,14 @@ namespace NoteCFProject.Model
 {
     enum TRANGTHAIHIENTAIBAN
     {
-        MOBAN,
-        DONGBAN
+        MOBAN = 1,
+        DONGBAN = 0
     }
 
     enum STATUS
     {
-        XOA,
-        DANGSUDUNG
+        XOA = -1,
+        DANGSUDUNG = 1
     }
 
     public class DANHMUC_SODOBAN_OBJ

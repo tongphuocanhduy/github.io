@@ -10,12 +10,12 @@ namespace NoteCFProject.Model
     public class MONDACHON_OBJ // MÓN ĐÃ CHỌN
     {
         public int STT { get; set; }
-        public int Ma { get; set; }
+        public int MaHoaDon { get; set; }
+        public int MaChiTietHoaDon { get; set; }
         public int MaMon { get; set; }
         public decimal? Gia { get; set; }
         public int? SoLuong { get; set; }
         public string GhiChu { get; set; }
-        public int Xoa { get; set; }
     }
 
     public class DANHMUC_DOANTHUCUONG_OBJ

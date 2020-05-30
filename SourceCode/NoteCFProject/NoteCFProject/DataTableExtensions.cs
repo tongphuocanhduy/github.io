@@ -21,7 +21,7 @@ namespace NoteCFProject
             return typeDictionary[type];
         }
 
-        public static IList<T> ToList<T>(this DataTable table) where T : new()
+        public static List<T> ToList<T>(this DataTable table) where T : new()
         {
             IList<PropertyInfo> properties = GetPropertiesForType<T>();
             IList<T> result = new List<T>();
@@ -32,7 +32,7 @@ namespace NoteCFProject
                 result.Add(item);
             }
 
-            return result;
+            return result.ToList();
         }
 
         private static T CreateItemFromRow<T>(DataRow row, IList<PropertyInfo> properties) where T : new()
@@ -40,7 +40,7 @@ namespace NoteCFProject
             T item = new T();
             foreach (var property in properties)
             {
-                property.SetValue(item, row[property.Name], null);
+                property.SetValue(item, row.IsNull(property.Name) ? null : row[property.Name], null);
             }
             return item;
         }
