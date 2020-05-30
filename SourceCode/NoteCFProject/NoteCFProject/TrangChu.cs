@@ -128,7 +128,8 @@ namespace NoteCFProject
 
                     // Lấy danh sách đồ ăn đã chọn trước đó
                     string sql = string.Format(@"SELECT CAST(ROW_NUMBER() OVER(ORDER BY CT.MAHOADON) AS INT) AS STT,
-                    HD.MA AS MAHOADON, CT.MA AS MACHITIETHOADON, CT.MAMON, GIA.GIABAN AS GIA, CT.SOLUONG, CT.GHICHU 
+                    HD.MA AS MAHOADON, CT.MA AS MACHITIETHOADON, CT.MAMON, GIA.GIABAN AS GIA, CT.SOLUONG, 
+                    GIA.GIABAN * CT.SOLUONG AS THANHTIEN, CT.GHICHU 
                     FROM HOADON HD
                     LEFT JOIN CHITIETHOADON CT ON HD.MA = CT.MAHOADON
                     LEFT JOIN GIADOANTHUCUONG GIA ON GIA.MADOANTHUCUONG = CT.MAMON
@@ -138,7 +139,7 @@ namespace NoteCFProject
 
                     List<MONDACHON_OBJ> listMonDaChon = tbMonDaChon.ToList<MONDACHON_OBJ>();
 
-                    int stt = listMonDaChon.Count();
+                    int stt = listMonDaChon.Count() + 1;
 
                     for (int i = stt; i < 21; i++)
                     {
@@ -212,15 +213,13 @@ namespace NoteCFProject
             }
             else // Cập nhật lại món
             {
-                // update lại tổng tiền
-
                 int maHoaDon = -1;
 
-                List<HOADON_OBJ> hoaDon = DBConnection.QueryBySELECT(string.Format(@"SELECT * FROM HOADON WHERE MABAN = '{0}' AND STATUS = 1", MaBan_DangChon)).ToList<HOADON_OBJ>();
+                HOADON_OBJ hoaDon = DBConnection.QueryBySELECT(string.Format(@"SELECT * FROM HOADON WHERE MABAN = '{0}' AND STATUS = 1", MaBan_DangChon)).ToList<HOADON_OBJ>().FirstOrDefault();
 
-                if (hoaDon != null && hoaDon.Count > 0)
+                if (hoaDon != null)
                 {
-                    maHoaDon = hoaDon[0].Ma;
+                    maHoaDon = hoaDon.Ma;
 
                     // Cập nhật status chi tiết = -1 tất cả theo bàn
                     int maChiTietHoaDon = DBConnection.QueryByUPDATE(string.Format(@"UPDATE CHITIETHOADON SET STATUS = -1 WHERE MAHOADON = '{0}' AND STATUS = 1", maHoaDon));
@@ -276,6 +275,8 @@ namespace NoteCFProject
 
             dataRowHandle.Gia = giaBan;
 
+            dataRowHandle.ThanhTien = dataRowHandle.Gia * dataRowHandle.SoLuong;
+
             grvDanhSachThucUong.RefreshData();
 
             TinhTongTien();
@@ -288,6 +289,8 @@ namespace NoteCFProject
             MONDACHON_OBJ dataRowHandle = grvDanhSachThucUong.GetFocusedRow() as MONDACHON_OBJ;
 
             dataRowHandle.SoLuong = Convert.ToInt32(edit.Value);
+
+            dataRowHandle.ThanhTien = dataRowHandle.Gia * dataRowHandle.SoLuong;
 
             grvDanhSachThucUong.RefreshData();
 
@@ -312,6 +315,7 @@ namespace NoteCFProject
             dataRowHandle.MaChiTietHoaDon = 0;
             dataRowHandle.MaMon = 0;
             dataRowHandle.Gia = null;
+            dataRowHandle.ThanhTien = null;
             dataRowHandle.SoLuong = null;
             dataRowHandle.GhiChu = "";
             grvDanhSachThucUong.RefreshData();

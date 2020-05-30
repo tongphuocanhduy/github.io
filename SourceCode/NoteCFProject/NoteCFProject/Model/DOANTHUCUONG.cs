@@ -14,6 +14,7 @@ namespace NoteCFProject.Model
         public int MaChiTietHoaDon { get; set; }
         public int MaMon { get; set; }
         public decimal? Gia { get; set; }
+        public decimal? ThanhTien { get; set; }
         public int? SoLuong { get; set; }
         public string GhiChu { get; set; }
     }

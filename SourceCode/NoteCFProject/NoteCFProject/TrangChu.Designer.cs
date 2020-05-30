@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSoDoBan));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.colTenBan = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +77,9 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
+            this.colThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -224,6 +227,8 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.labelControl6);
+            this.panelControl2.Controls.Add(this.labelControl5);
             this.panelControl2.Controls.Add(this.txtTongCong);
             this.panelControl2.Controls.Add(this.textEdit2);
             this.panelControl2.Controls.Add(this.textEdit4);
@@ -268,7 +273,7 @@
             this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.textEdit4.Properties.Appearance.Options.UseFont = true;
             this.textEdit4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit4.Size = new System.Drawing.Size(152, 20);
+            this.textEdit4.Size = new System.Drawing.Size(119, 20);
             this.textEdit4.TabIndex = 3;
             // 
             // textEdit1
@@ -279,7 +284,7 @@
             this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.textEdit1.Properties.Appearance.Options.UseFont = true;
             this.textEdit1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit1.Size = new System.Drawing.Size(152, 20);
+            this.textEdit1.Size = new System.Drawing.Size(119, 20);
             this.textEdit1.TabIndex = 3;
             // 
             // labelControl3
@@ -331,16 +336,18 @@
             this.colXoa.Caption = "Xoá";
             this.colXoa.ColumnEdit = this.repositoryItemButtonEditXoa;
             this.colXoa.FieldName = "Xoa";
+            this.colXoa.MaxWidth = 50;
+            this.colXoa.MinWidth = 50;
             this.colXoa.Name = "colXoa";
             this.colXoa.Visible = true;
-            this.colXoa.VisibleIndex = 5;
-            this.colXoa.Width = 64;
+            this.colXoa.VisibleIndex = 6;
+            this.colXoa.Width = 50;
             // 
             // repositoryItemButtonEditXoa
             // 
             this.repositoryItemButtonEditXoa.AutoHeight = false;
             this.repositoryItemButtonEditXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEditXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEditXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
             this.repositoryItemButtonEditXoa.Name = "repositoryItemButtonEditXoa";
             this.repositoryItemButtonEditXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditXoa.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditXoa_ButtonClick);
@@ -375,14 +382,14 @@
             this.tileViewSoDoBan.OptionsTiles.ItemSize = new System.Drawing.Size(100, 100);
             this.tileViewSoDoBan.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileViewSoDoBan.OptionsTiles.RowCount = 4;
-            tileViewItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
-            tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement1.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement1.Column = this.colTenBan;
-            tileViewItemElement1.Text = "colTenBan";
-            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileViewSoDoBan.TileTemplate.Add(tileViewItemElement1);
+            tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileViewItemElement2.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement2.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement2.Column = this.colTenBan;
+            tileViewItemElement2.Text = "colTenBan";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileViewSoDoBan.TileTemplate.Add(tileViewItemElement2);
             this.tileViewSoDoBan.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileViewSoDoBan_ItemClick);
             this.tileViewSoDoBan.ItemPress += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileViewSoDoBan_ItemPress);
             this.tileViewSoDoBan.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileViewSoDoBan_ItemCustomize);
@@ -453,8 +460,9 @@
             this.grvDanhSachThucUong.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colSTT,
             this.colTenMon,
-            this.colGia,
             this.colSoLuong,
+            this.colGia,
+            this.colThanhTien,
             this.colGhiChu,
             this.colXoa});
             this.grvDanhSachThucUong.GridControl = this.grcDanhSachThucUong;
@@ -473,12 +481,14 @@
             this.colSTT.AppearanceHeader.Options.UseFont = true;
             this.colSTT.Caption = "STT";
             this.colSTT.FieldName = "STT";
+            this.colSTT.MaxWidth = 50;
+            this.colSTT.MinWidth = 50;
             this.colSTT.Name = "colSTT";
             this.colSTT.OptionsColumn.AllowEdit = false;
             this.colSTT.OptionsColumn.ReadOnly = true;
             this.colSTT.Visible = true;
             this.colSTT.VisibleIndex = 0;
-            this.colSTT.Width = 48;
+            this.colSTT.Width = 50;
             // 
             // colTenMon
             // 
@@ -549,12 +559,14 @@
             this.colGia.DisplayFormat.FormatString = "N0";
             this.colGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colGia.FieldName = "Gia";
+            this.colGia.MaxWidth = 80;
+            this.colGia.MinWidth = 80;
             this.colGia.Name = "colGia";
             this.colGia.OptionsColumn.AllowEdit = false;
             this.colGia.OptionsColumn.ReadOnly = true;
             this.colGia.Visible = true;
             this.colGia.VisibleIndex = 2;
-            this.colGia.Width = 105;
+            this.colGia.Width = 80;
             // 
             // colSoLuong
             // 
@@ -565,10 +577,12 @@
             this.colSoLuong.Caption = "Số lượng";
             this.colSoLuong.ColumnEdit = this.repositoryItemSpinEditSoLuong;
             this.colSoLuong.FieldName = "SoLuong";
+            this.colSoLuong.MaxWidth = 80;
+            this.colSoLuong.MinWidth = 80;
             this.colSoLuong.Name = "colSoLuong";
             this.colSoLuong.Visible = true;
-            this.colSoLuong.VisibleIndex = 3;
-            this.colSoLuong.Width = 105;
+            this.colSoLuong.VisibleIndex = 2;
+            this.colSoLuong.Width = 80;
             // 
             // repositoryItemSpinEditSoLuong
             // 
@@ -589,7 +603,7 @@
             this.colGhiChu.FieldName = "GhiChu";
             this.colGhiChu.Name = "colGhiChu";
             this.colGhiChu.Visible = true;
-            this.colGhiChu.VisibleIndex = 4;
+            this.colGhiChu.VisibleIndex = 5;
             this.colGhiChu.Width = 149;
             // 
             // repositoryItemMemoEditGhiChu
@@ -630,6 +644,45 @@
             this.simpleButton5.Size = new System.Drawing.Size(112, 39);
             this.simpleButton5.TabIndex = 5;
             this.simpleButton5.Text = "Chuyển bàn";
+            // 
+            // colThanhTien
+            // 
+            this.colThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colThanhTien.AppearanceCell.Options.UseFont = true;
+            this.colThanhTien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colThanhTien.AppearanceHeader.Options.UseFont = true;
+            this.colThanhTien.Caption = "Thành tiền";
+            this.colThanhTien.DisplayFormat.FormatString = "N0";
+            this.colThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colThanhTien.FieldName = "ThanhTien";
+            this.colThanhTien.MaxWidth = 80;
+            this.colThanhTien.MinWidth = 80;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.OptionsColumn.AllowEdit = false;
+            this.colThanhTien.OptionsColumn.ReadOnly = true;
+            this.colThanhTien.Visible = true;
+            this.colThanhTien.VisibleIndex = 4;
+            this.colThanhTien.Width = 80;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl5.Location = new System.Drawing.Point(570, 60);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(14, 14);
+            this.labelControl5.TabIndex = 6;
+            this.labelControl5.Text = "%";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl6.Location = new System.Drawing.Point(570, 34);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(14, 14);
+            this.labelControl6.TabIndex = 7;
+            this.labelControl6.Text = "%";
             // 
             // FrmSoDoBan
             // 
@@ -719,5 +772,8 @@
         private DevExpress.XtraGrid.Columns.TileViewColumn colTrangThaiHienTai;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraEditors.SimpleButton btnLuuHoaDon;
+        private DevExpress.XtraGrid.Columns.GridColumn colThanhTien;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }
