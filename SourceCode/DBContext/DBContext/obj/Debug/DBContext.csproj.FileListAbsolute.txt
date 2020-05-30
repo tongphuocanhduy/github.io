@@ -2,3 +2,8 @@ D:\SOFT\Duy\NoteCF\DBContext\DBContext\bin\Debug\DBContext.dll
 D:\SOFT\Duy\NoteCF\DBContext\DBContext\bin\Debug\DBContext.pdb
 D:\SOFT\Duy\NoteCF\DBContext\DBContext\obj\Debug\DBContext.dll
 D:\SOFT\Duy\NoteCF\DBContext\DBContext\obj\Debug\DBContext.pdb
+D:\SOFT\Duy\NoteCF\GitHub\github.io\SourceCode\DBContext\DBContext\bin\Debug\DBContext.dll
+D:\SOFT\Duy\NoteCF\GitHub\github.io\SourceCode\DBContext\DBContext\bin\Debug\DBContext.pdb
+D:\SOFT\Duy\NoteCF\GitHub\github.io\SourceCode\DBContext\DBContext\obj\Debug\DBContext.csprojResolveAssemblyReference.cache
+D:\SOFT\Duy\NoteCF\GitHub\github.io\SourceCode\DBContext\DBContext\obj\Debug\DBContext.dll
+D:\SOFT\Duy\NoteCF\GitHub\github.io\SourceCode\DBContext\DBContext\obj\Debug\DBContext.pdb
