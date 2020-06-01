@@ -63,6 +63,36 @@ namespace NoteCFProject.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cancel_subscription_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cancel-subscription-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_move_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-move-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_online_money_transfer_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-online-money-transfer-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_print_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8-print-32", resourceCulture);

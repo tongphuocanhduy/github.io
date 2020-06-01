@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSoDoBan));
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.colTenBan = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.thốngKêToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.báoCáoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,13 +41,15 @@
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.btnLuuHoaDon = new DevExpress.XtraEditors.SimpleButton();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtTongCong = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtThanhTien = new DevExpress.XtraEditors.TextEdit();
+            this.txtPhuThu = new DevExpress.XtraEditors.TextEdit();
+            this.txtGiamGia = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -69,25 +71,23 @@
             this.colMa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenMon1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGia = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoLuong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemSpinEditSoLuong = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
+            this.colGia = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEditGhiChu = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.simpleButton7 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
-            this.colThanhTien = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.menuStrip.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCong.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhuThu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiamGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditXoa)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grcSoDoBan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileViewSoDoBan)).BeginInit();
@@ -143,15 +143,20 @@
             // 
             // btnMoDongBan
             // 
+            this.btnMoDongBan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btnMoDongBan.Appearance.Options.UseFont = true;
+            this.btnMoDongBan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnMoDongBan.Location = new System.Drawing.Point(121, 3);
             this.btnMoDongBan.Name = "btnMoDongBan";
-            this.btnMoDongBan.Size = new System.Drawing.Size(112, 39);
+            this.btnMoDongBan.Size = new System.Drawing.Size(112, 59);
             this.btnMoDongBan.TabIndex = 4;
             this.btnMoDongBan.Text = "Đóng bàn";
             this.btnMoDongBan.Click += new System.EventHandler(this.btnMoDongBan_Click);
             // 
             // simpleButton4
             // 
+            this.simpleButton4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton4.Location = new System.Drawing.Point(357, 3);
             this.simpleButton4.Name = "simpleButton4";
@@ -161,6 +166,8 @@
             // 
             // simpleButton3
             // 
+            this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.simpleButton3.Location = new System.Drawing.Point(239, 3);
             this.simpleButton3.Name = "simpleButton3";
@@ -189,7 +196,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.simpleButton6, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnThanhToan, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.simpleButton4, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnLuuHoaDon, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.simpleButton3, 2, 0);
@@ -202,14 +209,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(594, 68);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
-            // simpleButton6
+            // btnThanhToan
             // 
-            this.simpleButton6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.simpleButton6.Location = new System.Drawing.Point(121, 3);
-            this.simpleButton6.Name = "simpleButton6";
-            this.simpleButton6.Size = new System.Drawing.Size(112, 62);
-            this.simpleButton6.TabIndex = 4;
-            this.simpleButton6.Text = "Thanh Toán";
+            this.btnThanhToan.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.btnThanhToan.Appearance.Options.UseFont = true;
+            this.btnThanhToan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnThanhToan.Image = global::NoteCFProject.Properties.Resources.icons8_online_money_transfer_32;
+            this.btnThanhToan.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
+            this.btnThanhToan.Location = new System.Drawing.Point(121, 3);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(112, 62);
+            this.btnThanhToan.TabIndex = 4;
+            this.btnThanhToan.Text = "Thanh Toán";
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // btnLuuHoaDon
             // 
@@ -230,9 +242,9 @@
             this.panelControl2.Controls.Add(this.labelControl6);
             this.panelControl2.Controls.Add(this.labelControl5);
             this.panelControl2.Controls.Add(this.txtTongCong);
-            this.panelControl2.Controls.Add(this.textEdit2);
-            this.panelControl2.Controls.Add(this.textEdit4);
-            this.panelControl2.Controls.Add(this.textEdit1);
+            this.panelControl2.Controls.Add(this.txtThanhTien);
+            this.panelControl2.Controls.Add(this.txtPhuThu);
+            this.panelControl2.Controls.Add(this.txtGiamGia);
             this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.labelControl4);
             this.panelControl2.Controls.Add(this.labelControl2);
@@ -243,6 +255,26 @@
             this.panelControl2.Size = new System.Drawing.Size(594, 115);
             this.panelControl2.TabIndex = 3;
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl6.Location = new System.Drawing.Point(570, 34);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(14, 14);
+            this.labelControl6.TabIndex = 7;
+            this.labelControl6.Text = "%";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl5.Location = new System.Drawing.Point(570, 60);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(14, 14);
+            this.labelControl5.TabIndex = 6;
+            this.labelControl5.Text = "%";
+            // 
             // txtTongCong
             // 
             this.txtTongCong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -250,42 +282,44 @@
             this.txtTongCong.Name = "txtTongCong";
             this.txtTongCong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
             this.txtTongCong.Properties.Appearance.Options.UseFont = true;
+            this.txtTongCong.Properties.ReadOnly = true;
             this.txtTongCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTongCong.Size = new System.Drawing.Size(152, 20);
             this.txtTongCong.TabIndex = 5;
             // 
-            // textEdit2
+            // txtThanhTien
             // 
-            this.textEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEdit2.Location = new System.Drawing.Point(432, 83);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.textEdit2.Properties.Appearance.Options.UseFont = true;
-            this.textEdit2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit2.Size = new System.Drawing.Size(152, 20);
-            this.textEdit2.TabIndex = 4;
+            this.txtThanhTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtThanhTien.Location = new System.Drawing.Point(432, 83);
+            this.txtThanhTien.Name = "txtThanhTien";
+            this.txtThanhTien.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtThanhTien.Properties.Appearance.Options.UseFont = true;
+            this.txtThanhTien.Properties.ReadOnly = true;
+            this.txtThanhTien.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtThanhTien.Size = new System.Drawing.Size(152, 20);
+            this.txtThanhTien.TabIndex = 4;
             // 
-            // textEdit4
+            // txtPhuThu
             // 
-            this.textEdit4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEdit4.Location = new System.Drawing.Point(432, 31);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.textEdit4.Properties.Appearance.Options.UseFont = true;
-            this.textEdit4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit4.Size = new System.Drawing.Size(119, 20);
-            this.textEdit4.TabIndex = 3;
+            this.txtPhuThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPhuThu.Location = new System.Drawing.Point(432, 31);
+            this.txtPhuThu.Name = "txtPhuThu";
+            this.txtPhuThu.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtPhuThu.Properties.Appearance.Options.UseFont = true;
+            this.txtPhuThu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPhuThu.Size = new System.Drawing.Size(119, 20);
+            this.txtPhuThu.TabIndex = 3;
             // 
-            // textEdit1
+            // txtGiamGia
             // 
-            this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textEdit1.Location = new System.Drawing.Point(432, 57);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.textEdit1.Properties.Appearance.Options.UseFont = true;
-            this.textEdit1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.textEdit1.Size = new System.Drawing.Size(119, 20);
-            this.textEdit1.TabIndex = 3;
+            this.txtGiamGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtGiamGia.Location = new System.Drawing.Point(432, 57);
+            this.txtGiamGia.Name = "txtGiamGia";
+            this.txtGiamGia.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.txtGiamGia.Properties.Appearance.Options.UseFont = true;
+            this.txtGiamGia.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtGiamGia.Size = new System.Drawing.Size(119, 20);
+            this.txtGiamGia.TabIndex = 3;
             // 
             // labelControl3
             // 
@@ -347,7 +381,7 @@
             // 
             this.repositoryItemButtonEditXoa.AutoHeight = false;
             this.repositoryItemButtonEditXoa.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEditXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEditXoa.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
             this.repositoryItemButtonEditXoa.Name = "repositoryItemButtonEditXoa";
             this.repositoryItemButtonEditXoa.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.repositoryItemButtonEditXoa.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.repositoryItemButtonEditXoa_ButtonClick);
@@ -382,14 +416,14 @@
             this.tileViewSoDoBan.OptionsTiles.ItemSize = new System.Drawing.Size(100, 100);
             this.tileViewSoDoBan.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tileViewSoDoBan.OptionsTiles.RowCount = 4;
-            tileViewItemElement2.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tileViewItemElement2.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
-            tileViewItemElement2.Appearance.Normal.Options.UseFont = true;
-            tileViewItemElement2.Appearance.Normal.Options.UseForeColor = true;
-            tileViewItemElement2.Column = this.colTenBan;
-            tileViewItemElement2.Text = "colTenBan";
-            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
-            this.tileViewSoDoBan.TileTemplate.Add(tileViewItemElement2);
+            tileViewItemElement1.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tileViewItemElement1.Appearance.Normal.ForeColor = System.Drawing.Color.Black;
+            tileViewItemElement1.Appearance.Normal.Options.UseFont = true;
+            tileViewItemElement1.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement1.Column = this.colTenBan;
+            tileViewItemElement1.Text = "colTenBan";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            this.tileViewSoDoBan.TileTemplate.Add(tileViewItemElement1);
             this.tileViewSoDoBan.ItemClick += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileViewSoDoBan_ItemClick);
             this.tileViewSoDoBan.ItemPress += new DevExpress.XtraGrid.Views.Tile.TileViewItemClickEventHandler(this.tileViewSoDoBan_ItemPress);
             this.tileViewSoDoBan.ItemCustomize += new DevExpress.XtraGrid.Views.Tile.TileViewItemCustomizeEventHandler(this.tileViewSoDoBan_ItemCustomize);
@@ -440,7 +474,7 @@
             // grcDanhSachThucUong
             // 
             this.grcDanhSachThucUong.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grcDanhSachThucUong.Location = new System.Drawing.Point(2, 47);
+            this.grcDanhSachThucUong.Location = new System.Drawing.Point(2, 67);
             this.grcDanhSachThucUong.MainView = this.grvDanhSachThucUong;
             this.grcDanhSachThucUong.Name = "grcDanhSachThucUong";
             this.grcDanhSachThucUong.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -448,7 +482,7 @@
             this.repositoryItemSearchLookUpEditTenMon,
             this.repositoryItemSpinEditSoLuong,
             this.repositoryItemMemoEditGhiChu});
-            this.grcDanhSachThucUong.Size = new System.Drawing.Size(594, 233);
+            this.grcDanhSachThucUong.Size = new System.Drawing.Size(594, 213);
             this.grcDanhSachThucUong.TabIndex = 1;
             this.grcDanhSachThucUong.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvDanhSachThucUong});
@@ -549,25 +583,6 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 2;
             // 
-            // colGia
-            // 
-            this.colGia.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colGia.AppearanceCell.Options.UseFont = true;
-            this.colGia.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colGia.AppearanceHeader.Options.UseFont = true;
-            this.colGia.Caption = "Giá";
-            this.colGia.DisplayFormat.FormatString = "N0";
-            this.colGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colGia.FieldName = "Gia";
-            this.colGia.MaxWidth = 80;
-            this.colGia.MinWidth = 80;
-            this.colGia.Name = "colGia";
-            this.colGia.OptionsColumn.AllowEdit = false;
-            this.colGia.OptionsColumn.ReadOnly = true;
-            this.colGia.Visible = true;
-            this.colGia.VisibleIndex = 2;
-            this.colGia.Width = 80;
-            // 
             // colSoLuong
             // 
             this.colSoLuong.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
@@ -591,6 +606,44 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.repositoryItemSpinEditSoLuong.Name = "repositoryItemSpinEditSoLuong";
             this.repositoryItemSpinEditSoLuong.EditValueChanged += new System.EventHandler(this.repositoryItemSpinEditSoLuong_EditValueChanged);
+            // 
+            // colGia
+            // 
+            this.colGia.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colGia.AppearanceCell.Options.UseFont = true;
+            this.colGia.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colGia.AppearanceHeader.Options.UseFont = true;
+            this.colGia.Caption = "Giá";
+            this.colGia.DisplayFormat.FormatString = "N0";
+            this.colGia.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colGia.FieldName = "Gia";
+            this.colGia.MaxWidth = 80;
+            this.colGia.MinWidth = 80;
+            this.colGia.Name = "colGia";
+            this.colGia.OptionsColumn.AllowEdit = false;
+            this.colGia.OptionsColumn.ReadOnly = true;
+            this.colGia.Visible = true;
+            this.colGia.VisibleIndex = 3;
+            this.colGia.Width = 80;
+            // 
+            // colThanhTien
+            // 
+            this.colThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.colThanhTien.AppearanceCell.Options.UseFont = true;
+            this.colThanhTien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.colThanhTien.AppearanceHeader.Options.UseFont = true;
+            this.colThanhTien.Caption = "Thành tiền";
+            this.colThanhTien.DisplayFormat.FormatString = "N0";
+            this.colThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colThanhTien.FieldName = "ThanhTien";
+            this.colThanhTien.MaxWidth = 80;
+            this.colThanhTien.MinWidth = 80;
+            this.colThanhTien.Name = "colThanhTien";
+            this.colThanhTien.OptionsColumn.AllowEdit = false;
+            this.colThanhTien.OptionsColumn.ReadOnly = true;
+            this.colThanhTien.Visible = true;
+            this.colThanhTien.VisibleIndex = 4;
+            this.colThanhTien.Width = 80;
             // 
             // colGhiChu
             // 
@@ -626,63 +679,34 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(594, 45);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(594, 65);
             this.tableLayoutPanel3.TabIndex = 4;
             // 
             // simpleButton7
             // 
+            this.simpleButton7.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.simpleButton7.Appearance.Options.UseFont = true;
+            this.simpleButton7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton7.Image = global::NoteCFProject.Properties.Resources.icons8_cancel_subscription_32;
+            this.simpleButton7.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton7.Location = new System.Drawing.Point(475, 3);
             this.simpleButton7.Name = "simpleButton7";
-            this.simpleButton7.Size = new System.Drawing.Size(112, 39);
+            this.simpleButton7.Size = new System.Drawing.Size(116, 59);
             this.simpleButton7.TabIndex = 6;
             this.simpleButton7.Text = "Huỷ bàn";
             // 
             // simpleButton5
             // 
+            this.simpleButton5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.simpleButton5.Appearance.Options.UseFont = true;
+            this.simpleButton5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.simpleButton5.Image = global::NoteCFProject.Properties.Resources.icons8_move_32;
+            this.simpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
             this.simpleButton5.Location = new System.Drawing.Point(3, 3);
             this.simpleButton5.Name = "simpleButton5";
-            this.simpleButton5.Size = new System.Drawing.Size(112, 39);
+            this.simpleButton5.Size = new System.Drawing.Size(112, 59);
             this.simpleButton5.TabIndex = 5;
             this.simpleButton5.Text = "Chuyển bàn";
-            // 
-            // colThanhTien
-            // 
-            this.colThanhTien.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F);
-            this.colThanhTien.AppearanceCell.Options.UseFont = true;
-            this.colThanhTien.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.colThanhTien.AppearanceHeader.Options.UseFont = true;
-            this.colThanhTien.Caption = "Thành tiền";
-            this.colThanhTien.DisplayFormat.FormatString = "N0";
-            this.colThanhTien.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colThanhTien.FieldName = "ThanhTien";
-            this.colThanhTien.MaxWidth = 80;
-            this.colThanhTien.MinWidth = 80;
-            this.colThanhTien.Name = "colThanhTien";
-            this.colThanhTien.OptionsColumn.AllowEdit = false;
-            this.colThanhTien.OptionsColumn.ReadOnly = true;
-            this.colThanhTien.Visible = true;
-            this.colThanhTien.VisibleIndex = 4;
-            this.colThanhTien.Width = 80;
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.labelControl5.Location = new System.Drawing.Point(570, 60);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(14, 14);
-            this.labelControl5.TabIndex = 6;
-            this.labelControl5.Text = "%";
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.labelControl6.Location = new System.Drawing.Point(570, 34);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(14, 14);
-            this.labelControl6.TabIndex = 7;
-            this.labelControl6.Text = "%";
             // 
             // FrmSoDoBan
             // 
@@ -703,9 +727,9 @@
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCong.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtThanhTien.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPhuThu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGiamGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEditXoa)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grcSoDoBan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tileViewSoDoBan)).EndInit();
@@ -737,8 +761,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.TextEdit txtTongCong;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit txtThanhTien;
+        private DevExpress.XtraEditors.TextEdit txtGiamGia;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl1;
@@ -757,11 +781,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoLuong;
         private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
         private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEditXoa;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit txtPhuThu;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
-        private DevExpress.XtraEditors.SimpleButton simpleButton6;
+        private DevExpress.XtraEditors.SimpleButton btnThanhToan;
         private DevExpress.XtraEditors.SimpleButton simpleButton7;
         private DevExpress.XtraEditors.Repository.RepositoryItemSearchLookUpEdit repositoryItemSearchLookUpEditTenMon;
         private DevExpress.XtraGrid.Views.Grid.GridView repositoryItemSearchLookUpEdit1View;

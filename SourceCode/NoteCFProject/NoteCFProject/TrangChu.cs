@@ -20,6 +20,7 @@ namespace NoteCFProject
     {
         TileView TileView_DangChon = new TileView();
         int MaBan_DangChon = -1;
+        string TenBan_DangChon = "";
         int Handle_DangChon = -1;
         int TinhTrangHienTai_DangChon = -1;
 
@@ -101,6 +102,8 @@ namespace NoteCFProject
 
             MaBan_DangChon = (int)view.GetRowCellValue(e.Item.RowHandle, colMaBan);
 
+            TenBan_DangChon = (string)view.GetRowCellValue(e.Item.RowHandle, colTenBan);
+
             TinhTrangHienTai_DangChon = (int)view.GetRowCellValue(e.Item.RowHandle, colTrangThaiHienTai);
 
             if (TinhTrangHienTai_DangChon == 0) // Trống -> Không có người
@@ -124,35 +127,45 @@ namespace NoteCFProject
             {
                 if (TinhTrangHienTai_DangChon == 1) // Đang sử dụng -> Có người
                 {
-                    btnLuuHoaDon.Text = "Cập nhật hoá đơn";
+                    HOADON_OBJ hoaDon = DBConnection.QueryBySELECT(string.Format(@"SELECT * FROM HOADON WHERE MABAN = '{0}' AND STATUS = 1", MaBan_DangChon)).ToList<HOADON_OBJ>().FirstOrDefault();
 
-                    // Lấy danh sách đồ ăn đã chọn trước đó
-                    string sql = string.Format(@"SELECT CAST(ROW_NUMBER() OVER(ORDER BY CT.MAHOADON) AS INT) AS STT,
-                    HD.MA AS MAHOADON, CT.MA AS MACHITIETHOADON, CT.MAMON, GIA.GIABAN AS GIA, CT.SOLUONG, 
-                    GIA.GIABAN * CT.SOLUONG AS THANHTIEN, CT.GHICHU 
-                    FROM HOADON HD
-                    LEFT JOIN CHITIETHOADON CT ON HD.MA = CT.MAHOADON
-                    LEFT JOIN GIADOANTHUCUONG GIA ON GIA.MADOANTHUCUONG = CT.MAMON
-                    WHERE HD.MABAN = '{0}' AND HD.STATUS = 1
-                    AND CT.STATUS = 1", (int)view.GetRowCellValue(e.Item.RowHandle, colMaBan));
-                    DataTable tbMonDaChon = DBConnection.QueryBySELECT(sql);
-
-                    List<MONDACHON_OBJ> listMonDaChon = tbMonDaChon.ToList<MONDACHON_OBJ>();
-
-                    int stt = listMonDaChon.Count() + 1;
-
-                    for (int i = stt; i < 21; i++)
+                    if (hoaDon.ThanhToan == 1) // Đã thanh toán -> chỉ được correct thanh toán, in
                     {
-                        MONDACHON_OBJ newMonDaChon = new MONDACHON_OBJ
-                        {
-                            STT = i,
-                        };
-                        listMonDaChon.Add(newMonDaChon);
+                        AnHienNutTheoChucNang("DaThanhToan");
                     }
+                    else // Chưa thanh toán
+                    {
+                        AnHienNutTheoChucNang("ChuaThanhToan");
 
-                    grcDanhSachThucUong.DataSource = listMonDaChon;
+                        // Lấy danh sách đồ ăn đã chọn trước đó
+                        string sql = string.Format(@"SELECT CAST(ROW_NUMBER() OVER(ORDER BY CT.MAHOADON) AS INT) AS STT,
+                        HD.MA AS MAHOADON, CT.MA AS MACHITIETHOADON, CT.MAMON, GIA.GIABAN AS GIA, CT.SOLUONG, 
+                        GIA.GIABAN * CT.SOLUONG AS THANHTIEN, CT.GHICHU 
+                        FROM HOADON HD
+                        LEFT JOIN CHITIETHOADON CT ON HD.MA = CT.MAHOADON
+                        LEFT JOIN GIADOANTHUCUONG GIA ON GIA.MADOANTHUCUONG = CT.MAMON
+                        WHERE HD.MABAN = '{0}' AND HD.STATUS = 1
+                        AND CT.STATUS = 1", MaBan_DangChon);
 
-                    TinhTongTien();
+                        DataTable tbMonDaChon = DBConnection.QueryBySELECT(sql);
+
+                        List<MONDACHON_OBJ> listMonDaChon = tbMonDaChon.ToList<MONDACHON_OBJ>();
+
+                        int stt = listMonDaChon.Count() + 1;
+
+                        for (int i = stt; i < 21; i++)
+                        {
+                            MONDACHON_OBJ newMonDaChon = new MONDACHON_OBJ
+                            {
+                                STT = i,
+                            };
+                            listMonDaChon.Add(newMonDaChon);
+                        }
+
+                        grcDanhSachThucUong.DataSource = listMonDaChon;
+
+                        TinhTongTien();
+                    }
                 }
             }
         }
@@ -186,7 +199,7 @@ namespace NoteCFProject
                 if (listMonDaChonResult.Count > 0)
                 {
                     // Lưu Hoá Đơn
-                    int maHoaDon = DBConnection.QueryByINSERT(string.Format(@"INSERT INTO [dbo].[HoaDon] ([MaBan],[Ngay],[Status],[MaTaiKhoanTao],[ThanhToan])
+                    int maHoaDon = DBConnection.QueryByINSERT(string.Format(@"INSERT INTO [dbo].[HoaDon] ([MaBan],[NgayTao],[Status],[MaTaiKhoanTao],[ThanhToan])
                             VALUES ('{0}','{1}','{2}','{3}','{4}') ; ", MaBan_DangChon, DateTime.Now, (int)STATUS.DANGSUDUNG, 1, 0));
 
                     foreach (var item in listMonDaChonResult)
@@ -257,6 +270,61 @@ namespace NoteCFProject
                 }
             }
         }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            HOADON_OBJ hoaDon = DBConnection.QueryBySELECT(string.Format(@"SELECT * FROM HOADON WHERE MABAN = '{0}' AND STATUS = 1", MaBan_DangChon)).ToList<HOADON_OBJ>().FirstOrDefault();
+
+            if (hoaDon.ThanhToan == 1) // Đã thanh toán
+            {
+                if (MessageBox.Show(string.Format("Bạn muốn huỷ thanh toán hoá đơn cho {0} ?", TenBan_DangChon), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) // Đồng ý huỷ thanh toán
+                {
+                    // Cập nhật thanh toán = 1 trong bảng Hoá Đơn
+                    int maChiTietHoaDon = DBConnection.QueryByUPDATE(string.Format(@"UPDATE HOADON SET STATUS = -1, NGAYCAPNHAT = '{0}' WHERE MA = '{1}' AND STATUS = 1", DateTime.Now, hoaDon.Ma));
+
+                    List<MONDACHON_OBJ> listMonDaChon = new List<MONDACHON_OBJ>();
+
+                    listMonDaChon = (grvDanhSachThucUong.DataSource as List<MONDACHON_OBJ>);
+
+                    List<MONDACHON_OBJ> listMonDaChonResult = new List<MONDACHON_OBJ>();
+
+                    // Lấy danh sách đã chọn -> chỉ lấy khi có số lượng
+
+                    foreach (var item in listMonDaChon)
+                    {
+                        if (item.MaMon != null && item.SoLuong > 0)
+                        {
+                            listMonDaChonResult.Add(item);
+                        }
+                    }
+
+                    if (listMonDaChonResult.Count > 0)
+                    {
+                        // Lưu Hoá Đơn
+                        int maHoaDon = DBConnection.QueryByINSERT(string.Format(@"INSERT INTO [dbo].[HoaDon] ([MaBan],[NgayTao],[Status],[MaTaiKhoanTao],[ThanhToan])
+                            VALUES ('{0}','{1}','{2}','{3}','{4}') ; ", hoaDon.MaBan, DateTime.Now, (int)STATUS.DANGSUDUNG, 1, 0));
+
+                        foreach (var item in listMonDaChonResult)
+                        {
+                            // Lưu Chi Tiết Hoá Đơn
+                            maChiTietHoaDon = DBConnection.QueryByINSERT(string.Format(@"INSERT INTO [dbo].[ChiTietHoaDon] ([MaHoaDon],[MaMon],[SoLuong],[Status])
+                            VALUES ('{0}','{1}','{2}','{3}') ; ", maHoaDon, item.MaMon, item.SoLuong, (int)STATUS.DANGSUDUNG));
+                        }
+                    }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show(string.Format("Bạn muốn thanh toán hoá đơn cho {0} ?", TenBan_DangChon), "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) // Đồng ý thanh toán
+                {
+                    // Cập nhật thanh toán = 1 trong bảng Hoá Đơn
+                    int maChiTietHoaDon = DBConnection.QueryByUPDATE(string.Format(@"UPDATE HOADON SET THANHTOAN = 1, NGAYCAPNHAT = '{0}' WHERE MA = '{1}' AND STATUS = 1", DateTime.Now, hoaDon.Ma));
+
+                    AnHienNutTheoChucNang("DaThanhToan");
+                }
+            }
+        }
+
         #endregion
 
         #region Cac chuc nang ban
@@ -307,8 +375,6 @@ namespace NoteCFProject
             {
                 // Update chi tiết hoá đơn = -1 theo mã hoá đơn chi tiết;
                 int maChiTietHoaDon = DBConnection.QueryByUPDATE(string.Format(@"UPDATE [dbo].[ChiTietHoaDon]SET [Status] = -1WHERE [Ma] = {0}", dataRowHandle.MaChiTietHoaDon));
-
-                // update lại tổng tiền
             }
 
             dataRowHandle.MaHoaDon = 0;
@@ -320,6 +386,7 @@ namespace NoteCFProject
             dataRowHandle.GhiChu = "";
             grvDanhSachThucUong.RefreshData();
 
+            // update lại tổng tiền
             TinhTongTien();
         }
         #endregion
@@ -345,6 +412,30 @@ namespace NoteCFProject
             }
 
             txtTongCong.Text = tongcong.ToString("N0");
+
+            decimal phuThu = txtPhuThu.Text != "" ? Convert.ToDecimal(txtPhuThu.Text) : 0;
+
+            decimal giamGia = txtGiamGia.Text != "" ? Convert.ToDecimal(txtGiamGia.Text) : 0;
+
+            decimal thanhTien = tongcong + phuThu - giamGia;
+
+            txtThanhTien.Text = thanhTien.ToString("N0");
+        }
+
+        void AnHienNutTheoChucNang(string chucNang)
+        {
+            switch (chucNang)
+            {
+                case "DaThanhToan":
+                    btnLuuHoaDon.Enabled = false;
+                    btnThanhToan.Text = "Huỷ thanh toán";
+                    break;
+                case "ChuaThanhToan":
+                    btnLuuHoaDon.Enabled = true;
+                    btnThanhToan.Text = "Thanh toán";
+                    btnLuuHoaDon.Text = "Cập nhật hoá đơn";
+                    break;
+            }
         }
     }
 }
